@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B9D"/>
+      <stop offset="50%" style="stop-color:#E85D8A"/>
+      <stop offset="100%" style="stop-color:#D44D7A"/>
+    </linearGradient>
+    <linearGradient id="yarnPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB6D0"/>
+      <stop offset="100%" style="stop-color:#FF6B9D"/>
+    </linearGradient>
+    <linearGradient id="yarnTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7EEEE6"/>
+      <stop offset="100%" style="stop-color:#4ECDC4"/>
+    </linearGradient>
+    <linearGradient id="yarnYellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFE97A"/>
+      <stop offset="100%" style="stop-color:#FFD93D"/>
+    </linearGradient>
+    <linearGradient id="yarnPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C99AE8"/>
+      <stop offset="100%" style="stop-color:#A66DD4"/>
+    </linearGradient>
+    <linearGradient id="yarnOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFAD70"/>
+      <stop offset="100%" style="stop-color:#FF8C42"/>
+    </linearGradient>
+    <linearGradient id="needleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0E6DD"/>
+      <stop offset="50%" style="stop-color:#D4C4B0"/>
+      <stop offset="100%" style="stop-color:#B8A894"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:0"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <filter id="glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#FFD93D" flood-opacity="0.5"/>
+    </filter>
+    <filter id="ballShadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded square (app icon shape) -->
+  <rect x="0" y="0" width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+
+  <!-- Subtle pattern overlay -->
+  <g opacity="0.06">
+    <circle cx="80" cy="80" r="30" fill="white"/>
+    <circle cx="170" cy="60" r="20" fill="white"/>
+    <circle cx="340" cy="50" r="25" fill="white"/>
+    <circle cx="440" cy="90" r="18" fill="white"/>
+    <circle cx="60" cy="200" r="15" fill="white"/>
+    <circle cx="450" cy="220" r="22" fill="white"/>
+    <circle cx="100" cy="380" r="20" fill="white"/>
+    <circle cx="420" cy="400" r="16" fill="white"/>
+    <circle cx="250" cy="480" r="24" fill="white"/>
+  </g>
+
+  <!-- Inner glow at top -->
+  <ellipse cx="256" cy="100" rx="200" ry="120" fill="white" opacity="0.08"/>
+
+  <!-- Main yarn ball (large, center-left) -->
+  <g filter="url(#shadow)" transform="translate(145, 155)">
+    <!-- Ball body -->
+    <circle cx="0" cy="0" r="82" fill="url(#yarnTeal)"/>
+    <!-- Yarn wrap lines -->
+    <ellipse cx="0" cy="0" rx="78" ry="40" fill="none" stroke="#3BBEB6" stroke-width="4" transform="rotate(-25)" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="70" ry="50" fill="none" stroke="#3BBEB6" stroke-width="3" transform="rotate(15)" opacity="0.4"/>
+    <ellipse cx="0" cy="0" rx="60" ry="35" fill="none" stroke="#3BBEB6" stroke-width="3" transform="rotate(-50)" opacity="0.3"/>
+    <!-- Highlight -->
+    <ellipse cx="-25" cy="-30" rx="30" ry="20" fill="white" opacity="0.25" transform="rotate(-20)"/>
+    <circle cx="-18" cy="-25" r="8" fill="white" opacity="0.3"/>
+  </g>
+
+  <!-- Second yarn ball (medium, right) -->
+  <g filter="url(#ballShadow)" transform="translate(320, 200)">
+    <circle cx="0" cy="0" r="58" fill="url(#yarnYellow)"/>
+    <ellipse cx="0" cy="0" rx="54" ry="28" fill="none" stroke="#E8C430" stroke-width="3.5" transform="rotate(-30)" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="48" ry="35" fill="none" stroke="#E8C430" stroke-width="3" transform="rotate(20)" opacity="0.4"/>
+    <ellipse cx="0" cy="0" rx="40" ry="24" fill="none" stroke="#E8C430" stroke-width="2.5" transform="rotate(-55)" opacity="0.3"/>
+    <ellipse cx="-18" cy="-20" rx="20" ry="14" fill="white" opacity="0.25" transform="rotate(-20)"/>
+    <circle cx="-12" cy="-17" r="6" fill="white" opacity="0.3"/>
+  </g>
+
+  <!-- Third yarn ball (small, bottom-center) -->
+  <g filter="url(#ballShadow)" transform="translate(250, 320)">
+    <circle cx="0" cy="0" r="42" fill="url(#yarnPurple)"/>
+    <ellipse cx="0" cy="0" rx="38" ry="20" fill="none" stroke="#9058C0" stroke-width="3" transform="rotate(-35)" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="34" ry="25" fill="none" stroke="#9058C0" stroke-width="2.5" transform="rotate(25)" opacity="0.4"/>
+    <ellipse cx="-12" cy="-14" rx="14" ry="10" fill="white" opacity="0.2" transform="rotate(-20)"/>
+  </g>
+
+  <!-- Tiny yarn ball (accent, top-right) -->
+  <g filter="url(#ballShadow)" transform="translate(380, 120)">
+    <circle cx="0" cy="0" r="28" fill="url(#yarnOrange)"/>
+    <ellipse cx="0" cy="0" rx="24" ry="13" fill="none" stroke="#E07030" stroke-width="2.5" transform="rotate(-40)" opacity="0.5"/>
+    <ellipse cx="0" cy="0" rx="20" ry="15" fill="none" stroke="#E07030" stroke-width="2" transform="rotate(30)" opacity="0.4"/>
+    <ellipse cx="-8" cy="-10" rx="10" ry="7" fill="white" opacity="0.25" transform="rotate(-20)"/>
+  </g>
+
+  <!-- Knitting needles (crossed) -->
+  <g filter="url(#shadow)" transform="translate(256, 230) rotate(-10)">
+    <!-- Needle 1 -->
+    <g transform="rotate(35)">
+      <rect x="-6" y="-130" width="12" height="260" rx="6" fill="url(#needleGrad)"/>
+      <!-- Needle tip -->
+      <polygon points="0,-145 -5,-130 5,-130" fill="#D4C4B0"/>
+      <!-- Needle end ball -->
+      <circle cx="0" cy="130" r="14" fill="#F0E6DD" stroke="#D4C4B0" stroke-width="2"/>
+      <circle cx="-3" cy="127" r="4" fill="white" opacity="0.3"/>
+      <!-- Shine line -->
+      <rect x="-2" y="-120" width="3" height="200" rx="1.5" fill="white" opacity="0.15"/>
+    </g>
+
+    <!-- Needle 2 -->
+    <g transform="rotate(-35)">
+      <rect x="-6" y="-130" width="12" height="260" rx="6" fill="url(#needleGrad)"/>
+      <polygon points="0,-145 -5,-130 5,-130" fill="#D4C4B0"/>
+      <circle cx="0" cy="130" r="14" fill="#F0E6DD" stroke="#D4C4B0" stroke-width="2"/>
+      <circle cx="-3" cy="127" r="4" fill="white" opacity="0.3"/>
+      <rect x="-2" y="-120" width="3" height="200" rx="1.5" fill="white" opacity="0.15"/>
+    </g>
+  </g>
+
+  <!-- Yarn strand trailing from teal ball -->
+  <path d="M200,200 Q230,250 260,240 Q290,230 280,270 Q270,310 250,320"
+        fill="none" stroke="#4ECDC4" stroke-width="5" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Yarn strand from yellow ball -->
+  <path d="M345,230 Q320,260 300,250 Q280,240 270,280"
+        fill="none" stroke="#FFD93D" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Small sparkles/stars -->
+  <g filter="url(#glow)">
+    <polygon points="100,300 104,310 114,310 106,316 109,326 100,320 91,326 94,316 86,310 96,310" fill="#FFD93D" transform="scale(0.7) translate(50,100)"/>
+    <polygon points="400,160 403,167 410,167 404,172 406,179 400,175 394,179 396,172 390,167 397,167" fill="#FFD93D" transform="scale(0.6)"/>
+    <polygon points="350,350 353,357 360,357 354,362 356,369 350,365 344,369 346,362 340,357 347,357" fill="white" transform="scale(0.5)" opacity="0.8"/>
+  </g>
+
+  <!-- "K" letter badge (bottom-right, subtle branding) -->
+  <g transform="translate(390, 400)">
+    <circle cx="0" cy="0" r="36" fill="white" opacity="0.2"/>
+    <text x="0" y="8" font-family="'Arial Rounded MT Bold', 'Nunito', sans-serif" font-weight="900" font-size="36" fill="white" text-anchor="middle" dominant-baseline="central" opacity="0.9">K</text>
+  </g>
+
+  <!-- Top shine overlay -->
+  <rect x="0" y="0" width="512" height="256" rx="112" fill="url(#shine)" opacity="0.15"/>
+</svg>

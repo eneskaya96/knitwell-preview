@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knitwell - App Icon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 48px;
+            background: #1a1a2e;
+        }
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            color: #FF6B9D;
+            text-align: center;
+        }
+        .subtitle {
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+            margin-top: -32px;
+        }
+        .icon-showcase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 32px;
+        }
+        .icon-row {
+            display: flex;
+            gap: 24px;
+            align-items: end;
+        }
+        .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .icon-item img {
+            border-radius: 22%;
+            box-shadow: 0 8px 32px rgba(255,107,157,0.3);
+        }
+        .icon-label {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .store-mockup {
+            width: 340px;
+            background: #2a2a3e;
+            border-radius: 24px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .store-mockup img {
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        .store-info {
+            flex: 1;
+        }
+        .store-name {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            font-size: 20px;
+            color: white;
+        }
+        .store-dev {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            color: #4ECDC4;
+            margin-top: 2px;
+        }
+        .store-category {
+            font-family: 'Nunito', sans-serif;
+            font-size: 12px;
+            color: #888;
+            margin-top: 4px;
+        }
+        .store-stars {
+            display: flex;
+            gap: 3px;
+            margin-top: 8px;
+        }
+        .star { font-size: 14px; }
+        .store-rating {
+            font-family: 'Nunito', sans-serif;
+            font-size: 13px;
+            color: #FFD93D;
+            font-weight: 700;
+            margin-left: 6px;
+        }
+        .store-btn {
+            background: linear-gradient(135deg, #FF6B9D, #E85D8A);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(255,107,157,0.3);
+        }
+        .divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FF6B9D40, transparent);
+        }
+        .grid-bg {
+            background: #222238;
+            border-radius: 24px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+        .grid-bg img {
+            border-radius: 22%;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Knitwell</h1>
+    <p class="subtitle">App Icon Preview</p>
+
+    <!-- Size variants -->
+    <div class="icon-showcase">
+        <div class="icon-row">
+            <div class="icon-item">
+                <img src="icon.svg" width="180" height="180" alt="Icon Large">
+                <span class="icon-label">1024px</span>
+            </div>
+        </div>
+        <div class="icon-row">
+            <div class="icon-item">
+                <img src="icon.svg" width="120" height="120" alt="Icon">
+                <span class="icon-label">App Store</span>
+            </div>
+            <div class="icon-item">
+                <img src="icon.svg" width="60" height="60" alt="Icon Small">
+                <span class="icon-label">Home</span>
+            </div>
+            <div class="icon-item">
+                <img src="icon.svg" width="40" height="40" alt="Icon Tiny">
+                <span class="icon-label">Settings</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- App Store mockup -->
+    <div class="store-mockup">
+        <img src="icon.svg" width="80" height="80" alt="Store Icon">
+        <div class="store-info">
+            <div class="store-name">Knitwell</div>
+            <div class="store-dev">Color Knit Match</div>
+            <div class="store-category">Puzzle / Casual</div>
+            <div class="store-stars">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+                <span class="store-rating">4.8</span>
+            </div>
+            <button class="store-btn">GET</button>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Grid with other app icons (mock home screen) -->
+    <div class="grid-bg">
+        <div style="width:64px;height:64px;background:#333;border-radius:22%;"></div>
+        <div style="width:64px;height:64px;background:#444;border-radius:22%;"></div>
+        <img src="icon.svg" width="64" height="64" alt="Knitwell" style="border-radius:22%;">
+        <div style="width:64px;height:64px;background:#383838;border-radius:22%;"></div>
+        <div style="width:64px;height:64px;background:#3a3a3a;border-radius:22%;"></div>
+        <div style="width:64px;height:64px;background:#404040;border-radius:22%;"></div>
+        <div style="width:64px;height:64px;background:#363636;border-radius:22%;"></div>
+        <div style="width:64px;height:64px;background:#424242;border-radius:22%;"></div>
+    </div>
+</body>
+</html>
