@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knitwell - Victory</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #2D2B3D;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .phone {
+    width: 390px;
+    min-height: 844px;
+    background: linear-gradient(180deg, #2D2B3D 0%, #3D3555 50%, #2D2B3D 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Confetti */
+  .confetti-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    animation: confettiFall linear infinite;
+  }
+  @keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(900px) rotate(720deg); opacity: 0; }
+  }
+  .confetti:nth-child(1) { left: 5%; background: #FF6B9D; animation-duration: 3s; animation-delay: 0s; width: 12px; height: 6px; }
+  .confetti:nth-child(2) { left: 15%; background: #4ECDC4; animation-duration: 3.5s; animation-delay: 0.3s; border-radius: 50%; }
+  .confetti:nth-child(3) { left: 25%; background: #FFD93D; animation-duration: 2.8s; animation-delay: 0.1s; }
+  .confetti:nth-child(4) { left: 35%; background: #A66DD4; animation-duration: 3.2s; animation-delay: 0.5s; width: 8px; height: 12px; }
+  .confetti:nth-child(5) { left: 45%; background: #FF8C42; animation-duration: 2.9s; animation-delay: 0.2s; border-radius: 50%; }
+  .confetti:nth-child(6) { left: 55%; background: #FF6B9D; animation-duration: 3.4s; animation-delay: 0.4s; }
+  .confetti:nth-child(7) { left: 65%; background: #4ECDC4; animation-duration: 3.1s; animation-delay: 0.15s; width: 6px; height: 10px; }
+  .confetti:nth-child(8) { left: 75%; background: #FFD93D; animation-duration: 2.7s; animation-delay: 0.35s; border-radius: 50%; }
+  .confetti:nth-child(9) { left: 85%; background: #A66DD4; animation-duration: 3.3s; animation-delay: 0.25s; }
+  .confetti:nth-child(10) { left: 92%; background: #FF8C42; animation-duration: 3s; animation-delay: 0.45s; width: 12px; height: 6px; }
+  .confetti:nth-child(11) { left: 10%; background: #FFD93D; animation-duration: 3.6s; animation-delay: 0.6s; border-radius: 50%; }
+  .confetti:nth-child(12) { left: 50%; background: #FF6B9D; animation-duration: 2.6s; animation-delay: 0.55s; }
+  .confetti:nth-child(13) { left: 70%; background: #4ECDC4; animation-duration: 3.7s; animation-delay: 0.7s; width: 8px; }
+  .confetti:nth-child(14) { left: 30%; background: #A66DD4; animation-duration: 2.5s; animation-delay: 0.8s; height: 14px; width: 4px; }
+  .confetti:nth-child(15) { left: 80%; background: #FF8C42; animation-duration: 3.8s; animation-delay: 0.65s; border-radius: 50%; width: 8px; height: 8px; }
+
+  /* Glow burst */
+  .glow-burst {
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,217,61,0.2) 0%, rgba(255,107,157,0.1) 40%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: glowPulse 2s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+    50% { transform: translateX(-50%) scale(1.15); opacity: 1; }
+  }
+
+  /* Victory content */
+  .victory-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding-top: 100px;
+    width: 100%;
+  }
+
+  .victory-yarn {
+    width: 120px; height: 120px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, #FFD93D, #FF8C42);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 50px;
+    box-shadow: 0 8px 40px rgba(255,217,61,0.4), inset 0 -4px 12px rgba(0,0,0,0.1), inset 0 4px 8px rgba(255,255,255,0.4);
+    animation: bounceIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  @keyframes bounceIn {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  .victory-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 38px;
+    color: white;
+    margin-bottom: 4px;
+    text-shadow: 0 4px 20px rgba(255,217,61,0.3);
+  }
+  .victory-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+  }
+
+  /* Stars */
+  .stars-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .victory-star {
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px;
+    filter: drop-shadow(0 4px 12px rgba(255,217,61,0.4));
+    animation: starPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    transform: scale(0);
+  }
+  .victory-star:nth-child(1) { animation-delay: 0.3s; }
+  .victory-star:nth-child(2) { animation-delay: 0.5s; font-size: 50px; margin-top: -12px; }
+  .victory-star:nth-child(3) { animation-delay: 0.7s; }
+  @keyframes starPop {
+    0% { transform: scale(0) rotate(-30deg); }
+    60% { transform: scale(1.3) rotate(10deg); }
+    100% { transform: scale(1) rotate(0deg); }
+  }
+
+  /* Score card */
+  .score-card {
+    margin: 0 24px 24px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 2rem;
+    padding: 24px;
+  }
+  .score-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+  }
+  .score-row + .score-row {
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .score-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+  }
+  .score-value {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: white;
+  }
+  .score-value.highlight { color: #FFD93D; }
+  .score-value.bonus { color: #4ECDC4; }
+
+  /* Rewards */
+  .rewards-row {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 24px 28px;
+  }
+  .reward-item {
+    background: rgba(255,255,255,0.06);
+    border-radius: 1.5rem;
+    padding: 16px 20px;
+    text-align: center;
+    flex: 1;
+  }
+  .reward-icon { font-size: 28px; margin-bottom: 8px; }
+  .reward-amount {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: #FFD93D;
+  }
+  .reward-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+  }
+
+  /* Buttons */
+  .victory-buttons {
+    padding: 0 24px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+  .btn-next {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #FF6B9D, #E8A0BF);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(255,107,157,0.35), inset 0 2px 0 rgba(255,255,255,0.3);
+    transition: transform 0.15s ease;
+  }
+  .btn-next:active { transform: scale(0.97); }
+  .btn-home {
+    width: 100%;
+    padding: 16px;
+    background: rgba(255,255,255,0.08);
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: rgba(255,255,255,0.6);
+    transition: transform 0.15s ease;
+  }
+  .btn-home:active { transform: scale(0.97); }
+</style>
+</head>
+<body>
+<div class="phone">
+  <!-- Confetti -->
+  <div class="confetti-container">
+    <div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>
+    <div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>
+    <div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>
+    <div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>
+    <div class="confetti"></div><div class="confetti"></div><div class="confetti"></div>
+  </div>
+
+  <div class="glow-burst"></div>
+
+  <div class="victory-content">
+    <!-- Trophy -->
+    <div class="victory-yarn">&#127942;</div>
+
+    <div class="victory-title">Level Complete!</div>
+    <div class="victory-subtitle">Cozy Meadow - Level 48</div>
+
+    <!-- Stars -->
+    <div class="stars-row">
+      <div class="victory-star">&#11088;</div>
+      <div class="victory-star">&#11088;</div>
+      <div class="victory-star">&#11088;</div>
+    </div>
+
+    <!-- Score card -->
+    <div class="score-card">
+      <div class="score-row">
+        <span class="score-label">Score</span>
+        <span class="score-value highlight">18,720</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Best Score</span>
+        <span class="score-value">15,300</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Moves Left Bonus</span>
+        <span class="score-value bonus">+2,400</span>
+      </div>
+      <div class="score-row">
+        <span class="score-label">Time</span>
+        <span class="score-value">2:34</span>
+      </div>
+    </div>
+
+    <!-- Rewards -->
+    <div class="rewards-row">
+      <div class="reward-item">
+        <div class="reward-icon">&#128176;</div>
+        <div class="reward-amount">+120</div>
+        <div class="reward-label">Coins</div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-icon">&#10024;</div>
+        <div class="reward-amount">+350</div>
+        <div class="reward-label">XP</div>
+      </div>
+      <div class="reward-item">
+        <div class="reward-icon">&#129526;</div>
+        <div class="reward-amount">+1</div>
+        <div class="reward-label">Pattern</div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="victory-buttons">
+      <button class="btn-next">Next Level &#10132;</button>
+      <button class="btn-home">Back to Home</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

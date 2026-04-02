@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knitwell - Design Gallery</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0D0C14;
+    color: white;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .gallery-header {
+    text-align: center;
+    padding: 60px 24px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-header::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255,107,157,0.15) 0%, rgba(166,109,212,0.08) 40%, transparent 70%);
+    pointer-events: none;
+  }
+  .gallery-logo {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #FF6B9D, #E8A0BF);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px;
+    box-shadow: 0 8px 32px rgba(255,107,157,0.3), inset 0 -3px 8px rgba(0,0,0,0.15), inset 0 3px 6px rgba(255,255,255,0.3);
+    position: relative;
+  }
+  .gallery-logo::before {
+    content: '';
+    position: absolute;
+    top: 18%; left: 15%; right: 15%; bottom: 18%;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: rotate(-30deg);
+  }
+  .gallery-title {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    margin-bottom: 4px;
+    position: relative;
+  }
+  .gallery-title span { color: #FF6B9D; }
+  .gallery-subtitle {
+    font-weight: 500;
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 8px;
+  }
+  .gallery-meta {
+    font-weight: 500;
+    font-size: 13px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* Color palette row */
+  .palette-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 24px 40px;
+  }
+  .palette-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .swatch-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  .swatch-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    font-weight: 500;
+  }
+
+  /* Grid */
+  .screens-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+    padding: 0 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .screen-card {
+    background: #161422;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    display: block;
+    border: 1px solid rgba(255,255,255,0.05);
+  }
+  .screen-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(255,107,157,0.15);
+    border-color: rgba(255,107,157,0.2);
+  }
+
+  .screen-preview {
+    width: 100%;
+    height: 520px;
+    position: relative;
+    overflow: hidden;
+    background: #1a1828;
+  }
+  .screen-preview iframe {
+    width: 390px;
+    height: 844px;
+    border: none;
+    transform: scale(0.58);
+    transform-origin: top left;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -195px;
+    transform-origin: top center;
+  }
+
+  .screen-info {
+    padding: 20px 24px 24px;
+  }
+  .screen-number {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    color: #FF6B9D;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+  .screen-name {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+  .screen-desc {
+    font-weight: 400;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.5;
+  }
+  .screen-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .screen-tag {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.4);
+  }
+  .screen-tag.pink { background: rgba(255,107,157,0.12); color: #FF6B9D; }
+  .screen-tag.teal { background: rgba(78,205,196,0.12); color: #4ECDC4; }
+  .screen-tag.purple { background: rgba(166,109,212,0.12); color: #A66DD4; }
+  .screen-tag.yellow { background: rgba(255,217,61,0.12); color: #FFD93D; }
+  .screen-tag.orange { background: rgba(255,140,66,0.12); color: #FF8C42; }
+
+  /* Footer */
+  .gallery-footer {
+    text-align: center;
+    padding: 40px 24px 60px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .gallery-footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+  }
+  .gallery-footer a {
+    color: #FF6B9D;
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .screens-grid {
+      grid-template-columns: 1fr;
+      padding: 0 16px 60px;
+      gap: 24px;
+    }
+    .gallery-header { padding: 40px 16px 30px; }
+    .gallery-title { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="gallery-header">
+    <div class="gallery-logo">&#129526;</div>
+    <div class="gallery-title">Knit<span>well</span></div>
+    <div class="gallery-subtitle">Color Knit Match - UI Design Gallery</div>
+    <div class="gallery-meta">6 Screens &middot; Mobile Game &middot; Match-3 Puzzle</div>
+  </div>
+
+  <!-- Color palette -->
+  <div class="palette-row">
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #FF6B9D;"></div>
+      <div class="swatch-label">Pink</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #4ECDC4;"></div>
+      <div class="swatch-label">Teal</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #FFD93D;"></div>
+      <div class="swatch-label">Yellow</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #A66DD4;"></div>
+      <div class="swatch-label">Purple</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #FF8C42;"></div>
+      <div class="swatch-label">Orange</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #FFF5E6;"></div>
+      <div class="swatch-label">BG</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="swatch-circle" style="background: #2D2B3D;"></div>
+      <div class="swatch-label">Text</div>
+    </div>
+  </div>
+
+  <!-- Screens grid -->
+  <div class="screens-grid">
+
+    <a href="01-home.html" class="screen-card">
+      <div class="screen-preview">
+        <iframe src="01-home.html" loading="lazy"></iframe>
+      </div>
+      <div class="screen-info">
+        <div class="screen-number">Screen 01</div>
+        <div class="screen-name">Home Screen</div>
+        <div class="screen-desc">Main landing with player profile, play button, daily rewards, and quick navigation to all game features.</div>
+        <div class="screen-tags">
+          <span class="screen-tag pink">Landing</span>
+          <span class="screen-tag teal">Profile</span>
+          <span class="screen-tag yellow">Daily Reward</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="02-level-select.html" class="screen-card">
+      <div class="screen-preview">
+        <iframe src="02-level-select.html" loading="lazy"></iframe>
+      </div>
+      <div class="screen-info">
+        <div class="screen-number">Screen 02</div>
+        <div class="screen-name">Level Select</div>
+        <div class="screen-desc">Winding path-style level map with chapter progress, completed/current/locked states, and star ratings.</div>
+        <div class="screen-tags">
+          <span class="screen-tag purple">Map</span>
+          <span class="screen-tag teal">Progress</span>
+          <span class="screen-tag orange">Chapters</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="03-gameplay.html" class="screen-card">
+      <div class="screen-preview">
+        <iframe src="03-gameplay.html" loading="lazy"></iframe>
+      </div>
+      <div class="screen-info">
+        <div class="screen-number">Screen 03</div>
+        <div class="screen-name">Gameplay</div>
+        <div class="screen-desc">Core match-3 board with colorful yarn ball pieces, HUD with moves/score, objectives, and power-up bar.</div>
+        <div class="screen-tags">
+          <span class="screen-tag pink">Match-3</span>
+          <span class="screen-tag yellow">Game Board</span>
+          <span class="screen-tag purple">Power-ups</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="04-victory.html" class="screen-card">
+      <div class="screen-preview">
+        <iframe src="04-victory.html" loading="lazy"></iframe>
+      </div>
+      <div class="screen-info">
+        <div class="screen-number">Screen 04</div>
+        <div class="screen-name">Victory</div>
+        <div class="screen-desc">Level complete celebration with confetti, 3-star rating, score breakdown, rewards, and next level CTA.</div>
+        <div class="screen-tags">
+          <span class="screen-tag yellow">Celebration</span>
+          <span class="screen-tag orange">Rewards</span>
+          <span class="screen-tag pink">Stars</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="05-collection.html" class="screen-card">
+      <div class="screen-preview">
+        <iframe src="05-collection.html" loading="lazy"></iframe>
+      </div>
+      <div class="screen-info">
+        <div class="screen-number">Screen 05</div>
+        <div class="screen-name">Collection</div>
+        <div class="screen-desc">Pattern album with rarity tiers (Common, Rare, Epic, Legendary), collection progress, and filter tabs.</div>
+        <div class="screen-tags">
+          <span class="screen-tag purple">Patterns</span>
+          <span class="screen-tag teal">Album</span>
+          <span class="screen-tag yellow">Rarity</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="06-shop.html" class="screen-card">
+      <div class="screen-preview">
+        <iframe src="06-shop.html" loading="lazy"></iframe>
+      </div>
+      <div class="screen-info">
+        <div class="screen-number">Screen 06</div>
+        <div class="screen-name">Shop</div>
+        <div class="screen-desc">In-game store with featured bundles, coin packs, and individual power-up purchases with coin currency.</div>
+        <div class="screen-tags">
+          <span class="screen-tag orange">IAP</span>
+          <span class="screen-tag pink">Bundles</span>
+          <span class="screen-tag teal">Power-ups</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="gallery-footer">
+    <p>Knitwell - Color Knit Match &middot; UI Design by <a href="#">Designer Team</a> &middot; Stitch Project #16402061471954545953</p>
+  </div>
+
+</body>
+</html>
